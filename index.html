@@ -48,6 +48,28 @@
 
         <hr>
 
+                <!-- Quote Section -->
+        <div id="quote-box" style="text-align:center; margin: 2em auto; font-size: 1.2em; font-style: italic; max-width: 700px;">
+          <p id="quote"></p>
+        </div>
+        
+        <script>
+          const quotes = [
+            "Without data, you're just another person with an opinion. – W. Edwards Deming",
+            "Quality is never an accident; it is always the result of intelligent effort. – John Ruskin",
+            "In biotech, data is the DNA of discovery.",
+            "The goal is to turn data into information, and information into insight. – Carly Fiorina",
+            "Continuous improvement is better than delayed perfection. – Mark Twain",
+            "Leadership is the capacity to translate vision into reality. – Warren Bennis",
+            "Analytics brings clarity where uncertainty lives.",
+            "In science and in life, quality is doing it right when no one is watching."
+          ];
+        
+          // Pick a random quote
+          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+          document.getElementById("quote").textContent = randomQuote;
+        </script>
+
         <div class="row">
           <h2><a name="welcome"></a>Welcome</h2>
           <hr>
