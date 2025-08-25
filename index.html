@@ -70,6 +70,68 @@
           document.getElementById("quote").textContent = randomQuote;
         </script>
 
+                <!-- Animated Equilateral Triangle Logo -->
+        <div style="max-width: 420px; margin: 32px auto;">
+          <svg
+            width="100%" viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-labelledby="title desc"
+          >
+            <title id="title">TF Equilateral Logo</title>
+            <desc id="desc">Animated equilateral triangle with three centered, ascending bars.</desc>
+        
+            <style>
+              /* Triangle outline animation */
+              .outline {
+                fill: none;
+                stroke: #000;
+                stroke-width: 12;
+                stroke-linejoin: round;
+                stroke-dasharray: 1200;
+                stroke-dashoffset: 1200;
+                animation: draw 2s ease forwards;
+              }
+        
+              @keyframes draw {
+                to { stroke-dashoffset: 0; }
+              }
+        
+              /* Bars animation */
+              .bar {
+                fill: #000;
+                rx: 3;
+                transform: scaleY(0);
+                transform-origin: bottom;
+                animation: grow 1s ease forwards;
+              }
+        
+              /* Animate bars in sequence */
+              .bar1 { animation-delay: 2.2s; }
+              .bar2 { animation-delay: 2.6s; }
+              .bar3 { animation-delay: 3s; }
+        
+              @keyframes grow {
+                to { transform: scaleY(1); }
+              }
+            </style>
+        
+            <!-- Equilateral triangle -->
+            <path class="outline"
+                  d="M 36 460 L 476 460 L 256 79 Z" />
+        
+            <!-- Three evenly spaced bars -->
+            <g id="bars">
+              <!-- left bar (shortest) -->
+              <rect class="bar bar1" x="206" y="340" width="24" height="120"/>
+              <!-- middle bar -->
+              <rect class="bar bar2" x="246" y="280" width="24" height="180"/>
+              <!-- right bar (tallest) -->
+              <rect class="bar bar3" x="286" y="200" width="24" height="260"/>
+            </g>
+          </svg>
+        </div>
+
+        
         <div class="row">
           <h2><a name="welcome"></a>Welcome</h2>
           <hr>
@@ -311,61 +373,6 @@
       <p class="text-center">© 2025 Ted Fitch</p>
     </footer>
 
-  </div>
-  <!-- Animated Equilateral Triangle Logo -->
-  <div style="max-width: 420px; margin: 32px auto;">
-    <svg
-      width="100%" viewBox="0 0 512 512"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img" aria-labelledby="title desc"
-    >
-      <title id="title">TF Equilateral Logo – Animated Draw</title>
-      <desc id="desc">Equilateral triangle outline that draws in, with three centered ascending bars growing upward.</desc>
-  
-      <style>
-        .outline {
-          fill: none;
-          stroke: #000;
-          stroke-width: 10;
-          stroke-linejoin: round;
-          stroke-dasharray: 1;
-          stroke-dashoffset: 1;
-          animation: draw 1.2s ease-out forwards;
-        }
-        #bars rect {
-          fill: #000;
-          transform-box: fill-box;
-          transform-origin: center bottom;
-          transform: scaleY(0);
-          animation: grow 0.9s ease-out forwards;
-        }
-        #bars rect:nth-child(1) { animation-delay: 0.65s; }
-        #bars rect:nth-child(2) { animation-delay: 0.8s; }
-        #bars rect:nth-child(3) { animation-delay: 0.95s; }
-  
-        @keyframes draw { to { stroke-dashoffset: 0; } }
-        @keyframes grow { to { transform: scaleY(1); } }
-  
-        @media (prefers-reduced-motion: reduce) {
-          .outline { animation: none; stroke-dashoffset: 0; }
-          #bars rect { animation: none; transform: scaleY(1); }
-        }
-      </style>
-  
-      <!-- Equilateral triangle -->
-      <path class="outline" pathLength="1"
-            d="M 36 460 L 476 460 L 256 79 Z" />
-  
-      <!-- Three centered bars (baseline y=460) -->
-      <g id="bars">
-        <!-- bar 1 (short) -->
-        <rect x="226" y="360" width="20" height="100" rx="3"/>
-        <!-- bar 2 (medium) -->
-        <rect x="246" y="300" width="20" height="160" rx="3"/>
-        <!-- bar 3 (tallest) -->
-        <rect x="266" y="220" width="20" height="240" rx="3"/>
-      </g>
-    </svg>
   </div>
 
 
