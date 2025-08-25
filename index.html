@@ -312,6 +312,69 @@
     </footer>
 
   </div>
+  <!-- Animated Logo Reveal -->
+  <div style="max-width: 360px; margin: 32px auto;">
+    <svg
+      width="100%" viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img" aria-labelledby="title desc"
+    >
+      <title id="title">TF Triangular Logo – Animated Draw</title>
+      <desc id="desc">Equilateral triangle outline that draws in, with three centered ascending bars that grow upward.</desc>
+  
+      <style>
+        /* Triangle outline draws itself */
+        .outline {
+          fill: none;
+          stroke: #000;
+          stroke-width: 10;
+          stroke-linejoin: round;
+          stroke-dasharray: 1;           /* with pathLength=1 below, 1 == full length */
+          stroke-dashoffset: 1;          /* start hidden */
+          animation: draw 1.2s ease-out forwards;
+        }
+  
+        /* Bars grow up from the base, centered in triangle */
+        #bars rect {
+          fill: #000;
+          transform-box: fill-box;
+          transform-origin: center bottom;
+          transform: scaleY(0);          /* start collapsed */
+          animation: grow 0.9s ease-out forwards;
+        }
+        #bars rect:nth-child(1) { animation-delay: 0.65s; } /* after outline starts */
+        #bars rect:nth-child(2) { animation-delay: 0.78s; }
+        #bars rect:nth-child(3) { animation-delay: 0.91s; }
+  
+        @keyframes draw {
+          to { stroke-dashoffset: 0; }
+        }
+        @keyframes grow {
+          to { transform: scaleY(1); }
+        }
+  
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .outline { animation: none; stroke-dashoffset: 0; }
+          #bars rect { animation: none; transform: scaleY(1); }
+        }
+      </style>
+  
+      <!-- Triangle outline (equilateral look within viewBox) -->
+      <!-- pathLength lets us use dasharray/dashoffset in unit '1' for simple animation -->
+      <path class="outline" pathLength="1"
+            d="M256 40 L64 472 L448 472 Z" />
+  
+      <!-- Three centered ascending bars (last one highest) -->
+      <!-- Group width = 156 (3*36 + 2*24). Left edge = 256 - 78 = 178 -->
+      <!-- Baseline y=440 inside the triangle base at y=472 -->
+      <g id="bars">
+        <rect x="178" y="300" width="36" height="140" rx="4" />
+        <rect x="238" y="220" width="36" height="220" rx="4" />
+        <rect x="298" y="140" width="36" height="300" rx="4" />
+      </g>
+    </svg>
+  </div>
 
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
