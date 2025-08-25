@@ -70,7 +70,7 @@
           document.getElementById("quote").textContent = randomQuote;
         </script>
 
-               <!-- Animated Equilateral Triangle Logo -->
+                 <!-- Animated Equilateral Triangle Logo -->
         <div style="max-width: 420px; margin: 32px auto;">
           <svg
             width="100%" viewBox="0 0 512 512"
@@ -87,9 +87,10 @@
                 stroke: #000;
                 stroke-width: 12;
                 stroke-linejoin: round;
-                stroke-dasharray: 1239; /* actual perimeter length */
-                stroke-dashoffset: 1239;
+                stroke-dasharray: 1202; /* exact perimeter length */
+                stroke-dashoffset: 1202;
                 animation: draw 2s ease forwards;
+                animation-fill-mode: forwards; /* keep line visible */
               }
         
               @keyframes draw {
@@ -105,7 +106,6 @@
                 animation: grow 1s ease forwards;
               }
         
-              /* Animate bars in sequence */
               .bar1 { animation-delay: 2.2s; }
               .bar2 { animation-delay: 2.6s; }
               .bar3 { animation-delay: 3s; }
@@ -121,15 +121,13 @@
         
             <!-- Three evenly spaced bars -->
             <g id="bars">
-              <!-- left bar (shortest) -->
               <rect class="bar bar1" x="206" y="340" width="24" height="120"/>
-              <!-- middle bar -->
               <rect class="bar bar2" x="246" y="280" width="24" height="180"/>
-              <!-- right bar (tallest) -->
               <rect class="bar bar3" x="286" y="200" width="24" height="260"/>
             </g>
           </svg>
         </div>
+
 
 
         
