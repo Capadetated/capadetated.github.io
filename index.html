@@ -70,7 +70,7 @@
           document.getElementById("quote").textContent = randomQuote;
         </script>
 
-      <!-- Animated Equilateral Triangle Logo -->
+            <!-- Animated Equilateral Triangle Logo -->
         <div style="max-width: 420px; margin: 32px auto;">
           <svg
             width="100%" viewBox="0 0 512 512"
@@ -110,11 +110,11 @@
               }
             </style>
         
-            <!-- Equilateral triangle -->
-            <path class="outline" pathLength="1"
-                  d="M 36 460 L 476 460 L 256 79 Z" />
+            <!-- Equilateral triangle (polygon for cleaner corners) -->
+            <polygon class="outline" pathLength="1"
+                     points="64,460 448,460 256,92" />
         
-            <!-- Three centered bars (baseline y=460) -->
+            <!-- Three centered bars -->
             <g id="bars">
               <!-- bar 1 (short) -->
               <rect x="226" y="360" width="20" height="100" rx="3"/>
@@ -125,6 +125,7 @@
             </g>
           </svg>
         </div>
+
 
 
 
